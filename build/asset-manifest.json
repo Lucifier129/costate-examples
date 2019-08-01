@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/costate-examples/build/static/js/main.7196be7e.chunk.js",
+    "main.js.map": "/costate-examples/build/static/js/main.7196be7e.chunk.js.map",
+    "runtime~main.js": "/costate-examples/build/static/js/runtime~main.47e4c560.js",
+    "runtime~main.js.map": "/costate-examples/build/static/js/runtime~main.47e4c560.js.map",
+    "static/js/2.fd4b71b8.chunk.js": "/costate-examples/build/static/js/2.fd4b71b8.chunk.js",
+    "static/js/2.fd4b71b8.chunk.js.map": "/costate-examples/build/static/js/2.fd4b71b8.chunk.js.map",
+    "static/js/3.041c49bd.chunk.js": "/costate-examples/build/static/js/3.041c49bd.chunk.js",
+    "static/js/3.041c49bd.chunk.js.map": "/costate-examples/build/static/js/3.041c49bd.chunk.js.map",
+    "static/js/4.880ac11a.chunk.js": "/costate-examples/build/static/js/4.880ac11a.chunk.js",
+    "static/js/4.880ac11a.chunk.js.map": "/costate-examples/build/static/js/4.880ac11a.chunk.js.map",
+    "index.html": "/costate-examples/build/index.html",
+    "precache-manifest.0dcd9ef9e5aaa4dc6a2d7455bff21c35.js": "/costate-examples/build/precache-manifest.0dcd9ef9e5aaa4dc6a2d7455bff21c35.js",
+    "service-worker.js": "/costate-examples/build/service-worker.js"
+  }
+}
