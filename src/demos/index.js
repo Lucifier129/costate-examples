@@ -1,6 +1,8 @@
 import React from 'react'
 
 export default {
+  Counter: React.lazy(() => import('./Counter')),
   TodoApp: React.lazy(() => import('./TodoApp')),
-  Counter: React.lazy(() => import('./Counter'))
+
+  'Co-reducer-TodoApp': React.lazy(() => import('./Co-reducer-TodoApp'))
 }
