@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.js": "/costate-examples/build/static/js/main.7196be7e.chunk.js",
-    "main.js.map": "/costate-examples/build/static/js/main.7196be7e.chunk.js.map",
-    "runtime~main.js": "/costate-examples/build/static/js/runtime~main.47e4c560.js",
-    "runtime~main.js.map": "/costate-examples/build/static/js/runtime~main.47e4c560.js.map",
-    "static/js/2.fd4b71b8.chunk.js": "/costate-examples/build/static/js/2.fd4b71b8.chunk.js",
-    "static/js/2.fd4b71b8.chunk.js.map": "/costate-examples/build/static/js/2.fd4b71b8.chunk.js.map",
-    "static/js/3.041c49bd.chunk.js": "/costate-examples/build/static/js/3.041c49bd.chunk.js",
-    "static/js/3.041c49bd.chunk.js.map": "/costate-examples/build/static/js/3.041c49bd.chunk.js.map",
-    "static/js/4.880ac11a.chunk.js": "/costate-examples/build/static/js/4.880ac11a.chunk.js",
-    "static/js/4.880ac11a.chunk.js.map": "/costate-examples/build/static/js/4.880ac11a.chunk.js.map",
+    "main.js": "/costate-examples/build/static/js/main.04f6fabe.chunk.js",
+    "main.js.map": "/costate-examples/build/static/js/main.04f6fabe.chunk.js.map",
+    "runtime~main.js": "/costate-examples/build/static/js/runtime~main.ab76b415.js",
+    "runtime~main.js.map": "/costate-examples/build/static/js/runtime~main.ab76b415.js.map",
+    "static/js/2.45ee93e6.chunk.js": "/costate-examples/build/static/js/2.45ee93e6.chunk.js",
+    "static/js/2.45ee93e6.chunk.js.map": "/costate-examples/build/static/js/2.45ee93e6.chunk.js.map",
+    "static/js/3.75569a49.chunk.js": "/costate-examples/build/static/js/3.75569a49.chunk.js",
+    "static/js/3.75569a49.chunk.js.map": "/costate-examples/build/static/js/3.75569a49.chunk.js.map",
+    "static/js/4.0f483c3b.chunk.js": "/costate-examples/build/static/js/4.0f483c3b.chunk.js",
+    "static/js/4.0f483c3b.chunk.js.map": "/costate-examples/build/static/js/4.0f483c3b.chunk.js.map",
+    "static/js/5.bae4cac9.chunk.js": "/costate-examples/build/static/js/5.bae4cac9.chunk.js",
+    "static/js/5.bae4cac9.chunk.js.map": "/costate-examples/build/static/js/5.bae4cac9.chunk.js.map",
     "index.html": "/costate-examples/build/index.html",
-    "precache-manifest.0dcd9ef9e5aaa4dc6a2d7455bff21c35.js": "/costate-examples/build/precache-manifest.0dcd9ef9e5aaa4dc6a2d7455bff21c35.js",
+    "precache-manifest.63a756b719609107fc4fa08b1f0d36e0.js": "/costate-examples/build/precache-manifest.63a756b719609107fc4fa08b1f0d36e0.js",
     "service-worker.js": "/costate-examples/build/service-worker.js"
   }
 }
