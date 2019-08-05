@@ -1,5 +1,6 @@
 import React from 'react'
-import co, { useCostate, remove } from 'costate'
+import { co, remove } from 'costate'
+import { useCostate } from 'costate/react'
 import useSessionStorage from '../hooks/useSessionStorage'
 
 export default function App() {

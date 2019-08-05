@@ -1,5 +1,6 @@
 import React from 'react'
-import co, { useCostate } from 'costate'
+import { co } from 'costate'
+import { useCostate } from 'costate/react'
 import useSessionStorage from '../hooks/useSessionStorage'
 
 export default function Counter() {

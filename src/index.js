@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from 'react'
 import ReactDOM from 'react-dom'
-import co, { useCostate } from 'costate'
+import { co } from 'costate'
+import { useCostate } from 'costate/react'
 import useHashChange from './hooks/useHashChange'
 import demos from './demos'
 

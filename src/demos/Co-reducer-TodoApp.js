@@ -1,36 +1,36 @@
 import React from 'react'
-import co, { useCoreducer, remove } from 'costate'
+import { co, remove } from 'costate'
+import { useCoreducer } from 'costate/react'
 import useSessionStorage from '../hooks/useSessionStorage'
 
-const coreducerForApp = (costate, action) => {
-  if (action.type === 'ADD_TODO') {
-    let todo = {
-      id: Date.now(),
-      content: costate.text.value,
-      completed: false
-    }
-    costate.todos.push(todo)
-    costate.text.value = ''
-  }
-
-  if (action.type === 'TOGGLE_ALL') {
-    let hasActiveItem = costate.todos.some(todo => !todo.completed)
-
-    costate.todos.forEach(todo => {
-      todo.completed = hasActiveItem
-    })
-  }
-}
-
-const initialStateForApp = {
-  todos: [],
-  text: {
-    value: ''
-  }
-}
-
 export default function App() {
-  let [state, dispatch] = useCoreducer(coreducerForApp, initialStateForApp)
+  let [state, dispatch] = useCoreducer(
+    (costate, action) => {
+      if (action.type === 'ADD_TODO') {
+        let todo = {
+          id: Date.now(),
+          content: costate.text.value,
+          completed: false
+        }
+        costate.todos.push(todo)
+        costate.text.value = ''
+      }
+
+      if (action.type === 'TOGGLE_ALL') {
+        let hasActiveItem = costate.todos.some(todo => !todo.completed)
+
+        costate.todos.forEach(todo => {
+          todo.completed = hasActiveItem
+        })
+      }
+    },
+    {
+      todos: [],
+      text: {
+        value: ''
+      }
+    }
+  )
 
   useSessionStorage({
     key: 'coreducer-todos-json',
@@ -78,36 +78,36 @@ function Todos({ todos }) {
   )
 }
 
-const coreducerForTodo = (costate, action) => {
-  if (action.type === 'EDIT') {
-    costate.edit.value = true
-    costate.text.value = costate.todo.content
-  }
-
-  if (action.type === 'EDITED') {
-    costate.edit.value = false
-    costate.todo.content = costate.text.value
-  }
-
-  if (action.type === 'REMOVE') {
-    remove(costate.todo)
-  }
-
-  if (action.type === 'TOGGLE') {
-    costate.todo.completed = !costate.todo.completed
-  }
-}
-
 function Todo({ todo }) {
-  let [state, dispatch] = useCoreducer(coreducerForTodo, {
-    edit: {
-      value: false
+  let [state, dispatch] = useCoreducer(
+    (costate, action) => {
+      if (action.type === 'EDIT') {
+        costate.edit.value = true
+        costate.text.value = todo.content
+      }
+
+      if (action.type === 'EDITED') {
+        costate.edit.value = false
+        co(todo).content = costate.text.value
+      }
+
+      if (action.type === 'REMOVE') {
+        remove(co(todo))
+      }
+
+      if (action.type === 'TOGGLE') {
+        co(todo).completed = !todo.completed
+      }
     },
-    text: {
-      value: ''
-    },
-    todo: todo
-  })
+    {
+      edit: {
+        value: false
+      },
+      text: {
+        value: ''
+      }
+    }
+  )
 
   let handleEdit = () => {
     dispatch({ type: 'EDIT' })
@@ -135,7 +135,7 @@ function Todo({ todo }) {
     <li>
       <button onClick={handleRemove}>remove</button>
       <button onClick={handleToggle}>
-        {state.todo.completed ? 'completed' : 'active'}
+        {todo.completed ? 'completed' : 'active'}
       </button>
       {state.edit.value && (
         <TodoInput
@@ -144,49 +144,27 @@ function Todo({ todo }) {
           onKeyUp={handleKeyUp}
         />
       )}
-      {!state.edit.value && <span onClick={handleEdit}>{state.todo.content}</span>}
+      {!state.edit.value && <span onClick={handleEdit}>{todo.content}</span>}
     </li>
   )
 }
 
-const coreducerForTodoInput = (costate, action) => {
-  if (action.type === 'UPDATE_TEXT') {
-    costate.text.value = action.text
-  }
-}
-
 function TodoInput({ text, ...props }) {
-  let [state, dispatch] = useCoreducer(coreducerForTodoInput, { text })
   let handleChange = event => {
-    dispatch({
-      type: 'UPDATE_TEXT',
-      text: event.target.value
-    })
+    co(text).value = event.target.value
   }
   return (
-    <input
-      type="text"
-      {...props}
-      onChange={handleChange}
-      value={state.text.value}
-    />
+    <input type="text" {...props} onChange={handleChange} value={text.value} />
   )
 }
 
-const coreducerForFooter = (costate, action) => {
-  if (action.type === 'CLEAR_COMPLETED') {
-    let completedItems = costate.todos.filter(todo => todo.completed)
-    completedItems.reverse().forEach(item => remove(item))
-  }
-}
-
 function Footer({ todos }) {
-  let [state, dispatch] = useCoreducer(coreducerForFooter, { todos })
-  let activeItems = state.todos.filter(todo => !todo.completed)
-  let completedItems = state.todos.filter(todo => todo.completed)
+  let activeItems = todos.filter(todo => !todo.completed)
+  let completedItems = todos.filter(todo => todo.completed)
 
   let handleClearCompleted = () => {
-    dispatch({ type: 'CLEAR_COMPLETED' })
+    let completedItems = todos.filter(todo => todo.completed)
+    completedItems.reverse().forEach(item => remove(co(item)))
   }
 
   return (
